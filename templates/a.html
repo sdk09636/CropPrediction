@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Crop Prediction</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/yourfontawesomekit.js" crossorigin="anonymous"></script>
+    <style>
+      /* Custom Styles */
+      /* Custom styles */
+body {
+  background-color: #f0f0f0;
+}
+
+h2 {
+  color: #007bff;
+  text-align: center;
+}
+
+h3 {
+  color: #28a745;
+  text-align: center;
+}
+
+.card {
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card-title {
+  color: #6c757d;
+}
+
+.card-text {
+  color: #212529;
+}
+
+.card-footer {
+  background-color: #f0f0f0;
+  border-top: none;
+  text-align: right;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0062cc;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+.btn-success {
+  background-color: #28a745;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+    </style>
+  </head>
+  <body>
+    <!-- <h1>Temperature Sensor Reading:</h1>
+    <p id="temperature">&deg;C</p> -->
+    <div class="container">
+      <h2 class="text-centre"><i class="fas fa-leaf"></i>Crop Prediction Using Soil Details</h2>
+      <br>
+      <h3 class="text-centre"><i class="fas fa-chart-line"></i>Values</h3>
+      <br>
+    <form action="/" method="POST">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Temperature</h4>
+              <input type="text" id="temp" name="temp" value="{{ arr[3] }}">
+              <!-- <p class="card-text">25°C</p> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Humidity</h4>
+              <input type="text" id="hum" name="hum" value="{{ arr[4] }}">
+              <!-- <p class="card-text">50%</p> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">N</h4>
+              <input type="text" id="n" name="n" value="{{ arr[0] }}">
+              <!-- <p class="card-text">10</p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">P</h4>
+              <input type="text" id="p" name="p" value="{{ arr[1] }}">
+              <!-- <p class="card-text">20</p> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">K</h4>
+              <input type="text" id="k" name="k" value="{{ arr[2] }}">
+              <!-- <p class="card-text">30</p> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">pH</h4>
+              <input type="text" id="ph" name="ph" value="{{ arr[5] }}">
+              <!-- <p class="card-text">30</p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Rainfall</h4>
+              <input type="text" id="rf" name="rf" value="{{ arr[6] }}">
+              <!-- <p class="card-text">20</p> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          
+        </div>
+        <div class="col-sm-4">
+          
+        </div>
+      </div>
+      <br>
+      <button>Submit</button>
+    </form>
+      <br>
+      <h3 class="text-centre">Predicted Value</h3>
+      <br>
+      <div class="row">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Predicted Crop</h4>
+              <p class="card-text">{{ result }}</p>
+              <img src="{{ link1 }}" style="border: 2px solid black; width: 300px; height: 200px;">
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+        </div>
+      </div>
+      <br>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    </body>
+    </html>
+    <script>
+        // var socket = io();
+        // socket.on('temperature', function(temperature) {
+        // document.getElementById('temperature').innerHTML = temperature + ' &deg;C';
+        // });
+    </script>
+  </body>
+</html>

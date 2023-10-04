@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Temperature Sensor</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <!-- <h1>Temperature Sensor Reading:</h1>
+    <p id="temperature">&deg;C</p> -->
+    <div class="container">
+      <h2>Temperature and Humidity</h2>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Temperature</h4>
+              <p class="card-text">25°C</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Humidity</h4>
+              <p class="card-text">50%</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Value 1</h4>
+              <p class="card-text">10</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Value 2</h4>
+              <p class="card-text">20</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Value 3</h4>
+              <p class="card-text">30</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Value 4</h4>
+              <p class="card-text">40</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    </body>
+    </html>
+    <script>
+        // var socket = io();
+        // socket.on('temperature', function(temperature) {
+        // document.getElementById('temperature').innerHTML = temperature + ' &deg;C';
+        // });
+    </script>
+  </body>
+</html>
